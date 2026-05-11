@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/authStore'
 import { useThemeStore } from '@/store/themeStore'
 import { LogOut, LayoutDashboard, FolderKanban, Sun, Moon } from 'lucide-react'
+import { SparkleIcon } from '@/components/ui/SparkleIcon'
 
 function NavLink({ to, icon, label }: { to: string; icon: React.ReactNode; label: string }) {
   const { pathname } = useLocation()
@@ -41,8 +42,9 @@ export function Navbar() {
   return (
     <header className="bg-canvas border-b border-hairline sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="font-display text-xl text-ink tracking-[-0.3px] select-none">
-          ✦ Ethara
+        <Link to="/" className="font-display text-xl text-ink tracking-[-0.3px] select-none flex items-center gap-1.5">
+          <SparkleIcon size={18} color="#cc785c" />
+          Ethara
         </Link>
 
         <nav className="flex items-center gap-7">
