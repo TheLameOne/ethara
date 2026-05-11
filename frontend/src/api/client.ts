@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { useAuthStore } from '@/store/authStore'
 
+const rawBase = import.meta.env.VITE_API_BASE_URL ?? ''
+const apiBase = rawBase && !rawBase.startsWith('http') ? `https://${rawBase}` : rawBase
+
 const api = axios.create({
-  baseURL: (import.meta.env.VITE_API_BASE_URL ?? '') + '/api',
+  baseURL: apiBase + '/api',
 })
 
 api.interceptors.request.use((config) => {
